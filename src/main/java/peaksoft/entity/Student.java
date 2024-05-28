@@ -27,6 +27,6 @@ public class Student {
     private StudyFormat studyFormat;
 
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.REFRESH,CascadeType.DETACH,CascadeType.MERGE})
     private Group group;
 }

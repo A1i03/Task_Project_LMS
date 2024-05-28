@@ -27,12 +27,12 @@ public class Course {
     @ManyToOne
     private Company company;
 
-    @OneToMany(mappedBy = "course")
+    @OneToMany(mappedBy = "course",cascade = {CascadeType.DETACH,CascadeType.REFRESH,CascadeType.MERGE})
     private List<Instructor> instructorList;
 
-    @ManyToMany(mappedBy = "courseList")
+    @ManyToMany(mappedBy = "courseList",cascade = {CascadeType.REFRESH,CascadeType.PERSIST,CascadeType.REMOVE,CascadeType.MERGE})
     private List<Group>groups;
 
-    @OneToMany(mappedBy = "course")
+    @OneToMany(mappedBy = "course", cascade = {CascadeType.REFRESH,CascadeType.PERSIST,CascadeType.REMOVE,CascadeType.MERGE})
     private List<Lesson>lessons;
 }

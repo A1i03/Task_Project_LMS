@@ -22,6 +22,6 @@ public class Task {
     private String taskText;
     private LocalDate deadLine;
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.REFRESH,CascadeType.DETACH,CascadeType.MERGE})
     private Lesson lesson;
 }

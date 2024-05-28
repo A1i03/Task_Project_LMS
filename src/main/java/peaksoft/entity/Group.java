@@ -23,10 +23,10 @@ public class Group {
     private String imageLink;
     private String description;
 
-    @ManyToMany
+    @ManyToMany(cascade = {CascadeType.REFRESH,CascadeType.PERSIST,CascadeType.DETACH,CascadeType.MERGE})
     private List<Course> courseList;
 
-    @OneToMany(mappedBy = "group")
+    @OneToMany(mappedBy = "group", cascade = {CascadeType.REFRESH,CascadeType.PERSIST,CascadeType.DETACH,CascadeType.MERGE})
     private List<Student> students;
 
 }

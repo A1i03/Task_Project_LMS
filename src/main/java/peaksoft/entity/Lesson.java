@@ -24,7 +24,7 @@ public class Lesson {
     @ManyToOne
     private Course course;
 
-    @OneToMany(cascade = {CascadeType.REMOVE})
+    @OneToMany(cascade = {CascadeType.REMOVE,CascadeType.PERSIST,CascadeType.REFRESH,CascadeType.MERGE})
     private List<Task>tasks;
 
 }

@@ -3,6 +3,8 @@ package peaksoft.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "instructors")
 @Setter
@@ -20,12 +22,12 @@ public class Instructor {
     private String firstName;
     private String lastName;
     private String phoneNumber;
-    private String specializatoin;
+    private String specialization;
 
-    @ManyToOne
-    private Company company;
+    @ManyToMany(cascade = {CascadeType.REFRESH,CascadeType.DETACH,CascadeType.MERGE})
+    private List<Company> companies;
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.REFRESH,CascadeType.DETACH,CascadeType.MERGE})
     private Course course;
 
 }
